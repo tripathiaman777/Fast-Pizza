@@ -1,13 +1,14 @@
-import React from "react";
-import Button from "../../ui/Button";
+import { useDispatch } from 'react-redux';
+import Button from '../../ui/Button';
+import { deleteItem } from './cartSlice';
 
-function DeleteItem({onClick}) {
+function DeleteItem({ pizzaId }) {
+  const dispatch = useDispatch();
+
   return (
-    <div>
-      <Button type="small" onClick={onClick}>
-        Delete
-      </Button>
-    </div>
+    <Button type="small" onClick={() => dispatch(deleteItem(pizzaId))}>
+      Delete
+    </Button>
   );
 }
 

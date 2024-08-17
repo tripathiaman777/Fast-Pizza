@@ -1,9 +1,7 @@
-import React from "react";
-
 function Loader() {
   return (
-    <div className="absolute top-50 bg-slate-200/20 backdrop-blur-sm flex align-middle justify-center items-center inset-0 ">
-      <div className="loader z-10" />
+    <div className="absolute inset-0 flex items-center justify-center bg-slate-200/20 backdrop-blur-sm">
+      <div className="loader"></div>
     </div>
   );
 }

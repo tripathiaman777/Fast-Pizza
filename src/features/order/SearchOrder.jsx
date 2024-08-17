@@ -1,21 +1,26 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SearchOrder() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const navigate = useNavigate();
-  function handleClick(e){
+
+  function handleSubmit(e) {
     e.preventDefault();
-    if(!query) return;
+    if (!query) return;
     navigate(`/order/${query}`);
-    setQuery("")
+    setQuery('');
   }
+
   return (
-    <div>
-      <form onSubmit={handleClick} className="">
-        <input className="border-none rounded-full px-4 py-2 text-sm bg-yellow-100 placeholder:text-stone-400 focus:ring focus:ring-yellow-200 focus:ring-offset- focus:outline-none w-40 sm:focus:w-64 transition-all duration-300 focus:ring-opacity-50" placeholder="Search Your Order #" type="text" value={query} onChange={(e)=>setQuery(e.target.value)}/>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        placeholder="Search order #"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        className="w-28 rounded-full bg-yellow-100 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-500 focus:ring-opacity-50 sm:w-64 sm:focus:w-72"
+      />
+    </form>
   );
 }
 
